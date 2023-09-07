@@ -5,4 +5,6 @@ const criteria = [
     { key: "digit", description: "Contains at least one digit (0-9)", isMet: false },
     { key: "special", description: "Contains at least one special character (!@#$%^&*)", isMet: false }
   ];
+
+  // test
   
