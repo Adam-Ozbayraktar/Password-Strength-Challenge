@@ -11,6 +11,7 @@ const criteria = [
  let passwordUpCase = 0
  let passwordLowCase = 0
  let passwordDigit = 0
+ let passwordSpec = 0
  function checkPasswordStrength() {
   // Get the password input value
   const password = document.getElementById("passwordInput").value;
@@ -52,10 +53,30 @@ if (password.length >= 8) {
  } else {
     passwordDigit = 0
  }
- console.log(passwordDigit)
 
 
+ let specialCharacterCheck = criteria[4].isMet
+ if (/[!@#$%^&*]/.test(password)){
+  specialCharacterCheck = true
+  if (specialCharacterCheck = true) {
+    passwordSpec++
+  }
+ } else {
+    passwordSpec = 0
+ }
+
+ let preStrength = passwordLength + passwordUpCase + passwordLowCase + passwordDigit + passwordSpec
+ let passwordResult = ""
+ if (preStrength < 3) {
+    passwordResult = "Weak"
+ } else if ((preStrength = 3) || (preStrength = 4)) {
+    passwordResult = "Moderate"
+ } else if (preStrength > 5) {
+  passwordResult = "Strong"
+ }
   // Display password strength result and feedback
   const resultElement = document.getElementById("result");
+  let finalResult = passwordResult
+  resultElement.innerHTML = finalResult
   // Update resultElement.innerHTML with the strength and feedback
 }
