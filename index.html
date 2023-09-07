@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Detector Challenge</title>
+    <!-- Add any CSS links or styles here -->
+</head>
+<body>
+    <h1>Password Strength Detector Challenge</h1>
+
+    <!-- HTML form for entering a password -->
+    <form id="passwordForm">
+        <label for="passwordInput">Enter Password:</label>
+        <input type="password" id="passwordInput" required>
+        <button type="button" onclick="checkPasswordStrength()">Check Strength</button>
+    </form>
+
+    <!-- Display area for password strength result -->
+    <div id="result">
+        <!-- Password strength and feedback will be displayed here -->
+    </div>
+
+    <script>
+        // JavaScript code for password strength detection
+        function checkPasswordStrength() {
+            // Get the password input value
+            const password = document.getElementById("passwordInput").value;
+
+            // Implement password strength detection logic here
+
+            // Display password strength result and feedback
+            const resultElement = document.getElementById("result");
+            // Update resultElement.innerHTML with the strength and feedback
+        }
+    </script>
+</body>
+</html>
