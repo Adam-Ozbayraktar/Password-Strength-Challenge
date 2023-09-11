@@ -92,5 +92,5 @@ if (password.length >= 8) {
   
   let finalResult = passwordResult
   resultElement.innerHTML = finalResult +" " + feedBackRecom
-  // Update resultElement.innerHTML with the strength and feedback
+  // Update resultElement.innerHTML with the strength and feedback.
 }
