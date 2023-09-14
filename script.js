@@ -81,11 +81,12 @@ if (password.length >= 8) {
  if (preStrength < 3) {
     passwordResult = "Weak"
     resultElement.style.color = "red"
- } else if ((preStrength = 3) || (preStrength = 4)) {
+ } else if (preStrength < 5) {
     passwordResult = "Moderate"
     resultElement.style.color = "orange"
- } else if (preStrength >= 5) {
+ } else if (preStrength = 5) {
   passwordResult = "Strong"
+  feedBackRecom = ""
   resultElement.style.color = "green"
  }
   // Display password strength result and feedback
