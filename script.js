@@ -101,5 +101,10 @@ if (password.length >= 8) {
 }
 
 function resetStrenghtChecker () {
-  preStrength = 0
+   preStrength = 0
+   passwordLength = 0
+   passwordUpCase = 0
+   passwordLowCase = 0
+   passwordDigit = 0
+   passwordSpec = 0
 }
