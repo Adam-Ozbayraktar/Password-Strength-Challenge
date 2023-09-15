@@ -13,6 +13,7 @@ const criteria = [
  let passwordDigit = 0
  let passwordSpec = 0
  let feedBackRecom = ""
+ let preStrength = 0
  const resultElement = document.getElementById("result");
  /**
   * @returns the strength of the password according to the criteria along with feedback as to how to make the password stronger
@@ -25,7 +26,7 @@ const criteria = [
 let lengthCheck = criteria[0].isMet
 if (password.length >= 8) {
  lengthCheck = true
-  if (lengthCheck = true) { 
+  if (lengthCheck == true) { 
     passwordLength++
   }
 } else {
@@ -35,7 +36,7 @@ if (password.length >= 8) {
  let uppCaseCheck = criteria[1].isMet
  if (/[A-Z]/.test(password)){
   uppCaseCheck = true
-  if (uppCaseCheck = true) {
+  if (uppCaseCheck == true) {
     passwordUpCase++
   }
  } else {
@@ -45,7 +46,7 @@ if (password.length >= 8) {
  let lowCaseCheck = criteria[2].isMet
  if (/[a-z]/.test(password)){
   lowCaseCheck = true
-  if (uppCaseCheck = true) {
+  if (uppCaseCheck == true) {
     passwordLowCase++
   }
  } else {
@@ -55,7 +56,7 @@ if (password.length >= 8) {
  let digitCheck = criteria[3].isMet
  if (/[0-9]/.test(password)){
   digitCheck = true
-  if (digitCheck = true) {
+  if (digitCheck == true) {
     passwordDigit++
   }
  } else {
@@ -67,7 +68,7 @@ if (password.length >= 8) {
  let specialCharacterCheck = criteria[4].isMet
  if (/[!@#$%^&*]/.test(password)){
   specialCharacterCheck = true
-  if (specialCharacterCheck = true) {
+  if (specialCharacterCheck == true) {
     passwordSpec++
   }
  } else {
@@ -75,23 +76,30 @@ if (password.length >= 8) {
     feedBackRecom += "Try adding special characters ([!@#$%^&*) to increase password strength" + "\r\n"
  }
 
- let preStrength = passwordLength + passwordUpCase + passwordLowCase + passwordDigit + passwordSpec
+  preStrength = passwordLength + passwordUpCase + passwordLowCase + passwordDigit + passwordSpec
  let passwordResult = ""
  let passwordFeedback = ""
  if (preStrength < 3) {
     passwordResult = "Weak"
     resultElement.style.color = "red"
+    resetStrenghtChecker()
  } else if (preStrength < 5) {
     passwordResult = "Moderate"
     resultElement.style.color = "orange"
+    resetStrenghtChecker()
  } else if (preStrength = 5) {
   passwordResult = "Strong"
   feedBackRecom = ""
   resultElement.style.color = "green"
+  resetStrenghtChecker
  }
   // Display password strength result and feedback
   
   let finalResult = passwordResult
   resultElement.innerHTML = finalResult +" " + feedBackRecom
   // Update resultElement.innerHTML with the strength and feedback.
+}
+
+function resetStrenghtChecker () {
+  preStrength = 0
 }
