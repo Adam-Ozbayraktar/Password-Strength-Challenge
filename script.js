@@ -12,7 +12,11 @@ const criteria = [
  let passwordLowCase = 0
  let passwordDigit = 0
  let passwordSpec = 0
- let feedBackRecom = ""
+ let feedBackRecomLength = ""
+ let feedBackRecomUp = ""
+ let feedBackRecomLow = ""
+ let feedBackRecomNum = ""
+ let feedBackRecomSpec = ""
  let preStrength = 0
  const resultElement = document.getElementById("result");
  /**
@@ -28,40 +32,44 @@ if (password.length >= 8) {
  lengthCheck = true
   if (lengthCheck == true) { 
     passwordLength++
+    feedBackRecomLength = ""
   }
 } else {
  passwordLength = 0
- feedBackRecom += "Try increasing the length of passowrd to increase password strength"
+ feedBackRecomLength = "Try increasing the length of passowrd to increase password strength"
 }
  let uppCaseCheck = criteria[1].isMet
  if (/[A-Z]/.test(password)){
   uppCaseCheck = true
   if (uppCaseCheck == true) {
     passwordUpCase++
+    feedBackRecomUp = ""
   }
  } else {
   passwordUpCase = 0
-  feedBackRecom += "Try adding Capital Letters to increase password strength" + "\r\n"
+  feedBackRecomUp = "Try adding Capital Letters to increase password strength"
  }
  let lowCaseCheck = criteria[2].isMet
  if (/[a-z]/.test(password)){
   lowCaseCheck = true
   if (uppCaseCheck == true) {
     passwordLowCase++
+    feedBackRecomLow = ""
   }
  } else {
     passwordLowCase = 0
-    feedBackRecom += "Try adding Lower Case Letters to increase password strength" + "\r\n"
+    feedBackRecomLow = "Try adding Lower Case Letters to increase password strength" + "\r\n"
  }
  let digitCheck = criteria[3].isMet
  if (/[0-9]/.test(password)){
   digitCheck = true
   if (digitCheck == true) {
     passwordDigit++
+    feedBackRecomNum = ""
   }
  } else {
     passwordDigit = 0
-    feedBackRecom += "Try adding numbers (0-9) to increase password strength" + "\r\n"
+    feedBackRecomNum = "Try adding numbers (0-9) to increase password strength"
  }
 
 
@@ -70,10 +78,11 @@ if (password.length >= 8) {
   specialCharacterCheck = true
   if (specialCharacterCheck == true) {
     passwordSpec++
+    feedBackRecomSpec = ""
   }
  } else {
     passwordSpec = 0
-    feedBackRecom += "Try adding special characters ([!@#$%^&*) to increase password strength" + "\r\n"
+    feedBackRecomSpec = "Try adding special characters ([!@#$%^&*) to increase password strength"
  }
 
   preStrength = passwordLength + passwordUpCase + passwordLowCase + passwordDigit + passwordSpec
@@ -96,7 +105,7 @@ if (password.length >= 8) {
   // Display password strength result and feedback
   
   let finalResult = passwordResult
-  resultElement.innerHTML = finalResult +" " + feedBackRecom
+  resultElement.innerHTML = finalResult +" " + feedBackRecomLength +":"+ feedBackRecomUp +":"+feedBackRecomLow + ":" + feedBackRecomNum + ":" + feedBackRecomSpec
   // Update resultElement.innerHTML with the strength and feedback.
 }
 
