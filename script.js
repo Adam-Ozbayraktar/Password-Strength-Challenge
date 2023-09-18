@@ -12,13 +12,12 @@ const criteria = [
  let passwordLowCase = 0
  let passwordDigit = 0
  let passwordSpec = 0
- let feedBackRecomLength = ""
- let feedBackRecomUp = ""
- let feedBackRecomLow = ""
- let feedBackRecomNum = ""
- let feedBackRecomSpec = ""
  let preStrength = 0
  const resultElement = document.getElementById("result");
+ let iCounter = 0
+ for (iCounter = 0; iCounter < criteria.length; iCounter++) {
+      criteriaNotMet()
+ }
  /**
   * @returns the strength of the password according to the criteria along with feedback as to how to make the password stronger
   */
@@ -27,67 +26,61 @@ const criteria = [
   const password = document.getElementById("passwordInput").value;
 
   // Implement password strength detection logic here
-let lengthCheck = criteria[0].isMet
+
 if (password.length >= 8) {
- lengthCheck = true
-  if (lengthCheck == true) { 
+ criteria[0].isMet = true
+  if (criteria[0].isMet== true) { 
     passwordLength++
-    feedBackRecomLength = ""
+    criteriaMet()
   }
 } else {
  passwordLength = 0
- feedBackRecomLength = "Try increasing the length of passowrd to increase password strength"
 }
- let uppCaseCheck = criteria[1].isMet
+ 
  if (/[A-Z]/.test(password)){
-  uppCaseCheck = true
-  if (uppCaseCheck == true) {
+  criteria[1].isMet = true
+  if (criteria[1].isMet == true) {
     passwordUpCase++
-    feedBackRecomUp = ""
+    criteriaMet()
   }
  } else {
   passwordUpCase = 0
-  feedBackRecomUp = "Try adding Capital Letters to increase password strength"
  }
- let lowCaseCheck = criteria[2].isMet
+ 
  if (/[a-z]/.test(password)){
-  lowCaseCheck = true
-  if (uppCaseCheck == true) {
+  criteria[2].isMet = true
+  if (criteria[2].isMet == true) {
     passwordLowCase++
-    feedBackRecomLow = ""
+    criteriaMet()
   }
  } else {
     passwordLowCase = 0
-    feedBackRecomLow = "Try adding Lower Case Letters to increase password strength" + "\r\n"
  }
- let digitCheck = criteria[3].isMet
+ 
  if (/[0-9]/.test(password)){
-  digitCheck = true
-  if (digitCheck == true) {
+  criteria[3].isMet = true
+  if (criteria[3].isMet == true) {
     passwordDigit++
-    feedBackRecomNum = ""
+    criteriaMet()
   }
  } else {
     passwordDigit = 0
-    feedBackRecomNum = "Try adding numbers (0-9) to increase password strength"
  }
 
 
- let specialCharacterCheck = criteria[4].isMet
+ 
  if (/[!@#$%^&*]/.test(password)){
-  specialCharacterCheck = true
-  if (specialCharacterCheck == true) {
+  criteria[4].isMet = true
+  if (criteria[4].isMet == true) {
     passwordSpec++
-    feedBackRecomSpec = ""
+    criteriaMet()
   }
  } else {
     passwordSpec = 0
-    feedBackRecomSpec = "Try adding special characters ([!@#$%^&*) to increase password strength"
  }
 
   preStrength = passwordLength + passwordUpCase + passwordLowCase + passwordDigit + passwordSpec
  let passwordResult = ""
- let passwordFeedback = ""
  if (preStrength < 3) {
     passwordResult = "Weak"
     resultElement.style.color = "red"
@@ -98,14 +91,13 @@ if (password.length >= 8) {
     resetStrenghtChecker()
  } else if (preStrength = 5) {
   passwordResult = "Strong"
-  feedBackRecom = ""
   resultElement.style.color = "green"
-  resetStrenghtChecker
+  resetStrenghtChecker()
  }
   // Display password strength result and feedback
   
   let finalResult = passwordResult
-  resultElement.innerHTML = finalResult +" " + feedBackRecomLength +":"+ feedBackRecomUp +":"+feedBackRecomLow + ":" + feedBackRecomNum + ":" + feedBackRecomSpec
+  resultElement.innerHTML = finalResult 
   // Update resultElement.innerHTML with the strength and feedback.
 }
 
@@ -116,4 +108,49 @@ function resetStrenghtChecker () {
    passwordLowCase = 0
    passwordDigit = 0
    passwordSpec = 0
+}
+
+function criteriaNotMet () {
+  let potato = 0
+  const criteriaNotMet = document.getElementById("criteria-not-met") 
+  const para = document.createElement("div")
+  para.id = potato
+  const textNode = document.createTextNode(criteria[iCounter]["description"])
+  para.appendChild(textNode)
+  criteriaNotMet.append(para)
+}
+
+ let criteriaLength = document.getElementById("0")
+  let criteriaUpp = document.getElementById("1")
+  let criteriaLow = document.getElementById("2")
+  let criteriaDigit = document.getElementById("3")
+  let criteriaSpec = document.getElementById("4")
+function criteriaMet () {
+  
+  if (criteria[0].isMet == true) {
+  criteriaLength.style.color = "Green" 
+    } else {
+  criteriaLength.style.color = "Red"
+    }
+  if (criteria[1].isMet == true) {
+    criteriaUpp.style.color = "Green" 
+    } else {
+    criteriaUpp.style.color = "Red"
+    }
+  if (criteria[2].isMet == true) {
+    criteriaLow.style.color = "Green" 
+    } else {
+    criteriaLow.style.color = "Red"
+    }
+  if (criteria[3].isMet == true) {
+    criteriaDigit.style.color = "Green" 
+    } else {
+    criteriaDigit.style.color = "Red"  
+    }
+  if (criteria[4].isMet == true) {
+    criteriaSpec.style.color = "Green" 
+    } else {
+    criteriaSpec.style.color = "Red"  
+    }
+
 }

@@ -1,0 +1,15 @@
+#criteria-display {
+    display: flex;
+    flex-direction: row;
+}
+#criteria-not-met {
+ color: red;
+ flex-direction: column;
+
+}
+#lableNot{
+  color: black;  
+}
+#criteria-met {
+    color: green;
+}
