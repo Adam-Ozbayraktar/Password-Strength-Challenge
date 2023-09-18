@@ -18,6 +18,14 @@ const criteria = [
  for (iCounter = 0; iCounter < criteria.length; iCounter++) {
       criteriaNotMet()
  }
+
+ let weakPassword = document.getElementById("weak")
+  weakPassword.innerHTML = "Weak"
+ let moderatePassword = document.getElementById("moderate")
+  moderatePassword.innerHTML = "Moderate"
+ let strongPassword = document.getElementById("strong")
+  strongPassword.innerHTML = "Strong"
+
  /**
   * @returns the strength of the password according to the criteria along with feedback as to how to make the password stronger
   */
@@ -80,24 +88,24 @@ if (password.length >= 8) {
  }
 
   preStrength = passwordLength + passwordUpCase + passwordLowCase + passwordDigit + passwordSpec
- let passwordResult = ""
  if (preStrength < 3) {
-    passwordResult = "Weak"
-    resultElement.style.color = "red"
+    weakPassword.style.color = "red"
+    moderatePassword.style.color = "Grey"
+    strongPassword.style.color = "Grey"
     resetStrenghtChecker()
  } else if (preStrength < 5) {
-    passwordResult = "Moderate"
-    resultElement.style.color = "orange"
+    moderatePassword.style.color = "orange"
+    weakPassword.style.color = "Grey"
+    strongPassword.style.color = "Grey"
     resetStrenghtChecker()
  } else if (preStrength = 5) {
-  passwordResult = "Strong"
-  resultElement.style.color = "green"
+  strongPassword.style.color = "green"
+  strongPassword.style.fontWeight = "Bold"
+  weakPassword.style.color = "Grey"
+  moderatePassword.style.color = "Grey"
   resetStrenghtChecker()
  }
-  // Display password strength result and feedback
-  
-  let finalResult = passwordResult
-  resultElement.innerHTML = finalResult 
+  // Display password strength result and feedback  
   // Update resultElement.innerHTML with the strength and feedback.
 }
 
