@@ -8,15 +8,17 @@
     <!-- Add any CSS links or styles here -->
 </head>
 <body>
-    <h1>Password Strength Detector Challenge</h1>
+    <h1 id="header">Password Strength Detector Challenge</h1>
 
     <!-- HTML form for entering a password -->
     <form id="passwordForm">
+        <div id="form">
         <label for="passwordInput">Enter Password:</label>
         <input type="text" id="passwordInput" >
         <button type="button" onclick="checkPasswordStrength()">Check Strength</button>
        <button type="reset" onclick="location.href='https://thabo.bytebox.co.za/'">
      Home</button>
+    </div>
     </form>
 
     <!-- Display area for password strength result -->
