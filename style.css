@@ -1,0 +1,16 @@
+#criteria-display {
+    display: flex;
+    flex-direction: column;
+}
+#criteria-not-met {
+ color: red;
+ flex-direction: column;
+
+}
+
+#password-strength {
+display:  flex;
+flex-direction: row;
+color: grey;
+justify-content: center;
+}

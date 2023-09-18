@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Strength Detector Challenge</title>
+    <link rel="stylesheet" href="style.css">
     <!-- Add any CSS links or styles here -->
 </head>
 <body>
@@ -12,14 +13,29 @@
     <!-- HTML form for entering a password -->
     <form id="passwordForm">
         <label for="passwordInput">Enter Password:</label>
-        <input type="password" id="passwordInput" required>
+        <input type="text" id="passwordInput" >
         <button type="button" onclick="checkPasswordStrength()">Check Strength</button>
+       <button type="reset" onclick="location.href='https://thabo.bytebox.co.za/'">
+     Home</button>
     </form>
 
     <!-- Display area for password strength result -->
     <div id="result">
         <!-- Password strength and feedback will be displayed here -->
     </div>
+    <div id="criteria-display">
+        
+        <div id="criteria-not-met">
+            <label for="criteria-not-met">Criteria:</label>  
+        </div>
+        
+    </div>
+    <div id="password-strength">
+        <div id="weak"></div>
+        <div id="moderate"></div>
+        <div id="strong"></div>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
