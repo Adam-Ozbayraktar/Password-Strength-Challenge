@@ -111,10 +111,9 @@ function resetStrenghtChecker () {
 }
 
 function criteriaNotMet () {
-  let potato = 0
   const criteriaNotMet = document.getElementById("criteria-not-met") 
   const para = document.createElement("div")
-  para.id = potato
+  para.id = iCounter
   const textNode = document.createTextNode(criteria[iCounter]["description"])
   para.appendChild(textNode)
   criteriaNotMet.append(para)
