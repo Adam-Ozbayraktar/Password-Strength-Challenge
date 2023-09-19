@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Strength Detector Challenge</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   
     <!-- Add any CSS links or styles here -->
 </head>
 <body>
@@ -14,10 +17,8 @@
     <form id="passwordForm">
         <div id="form">
         <label for="passwordInput">Enter Password:</label>
-        <input type="text" id="passwordInput" >
-        <button type="button" onclick="checkPasswordStrength()">Check Strength</button>
-       <button type="reset" onclick="location.href='https://thabo.bytebox.co.za/'">
-     Home</button>
+        <input type="text" id="passwordInput" oninput="checkPasswordStrength()"  onkeydown="onRemoval()">
+    <a class="waves-effect waves-light btn" onclick="location.href='https://thabo.bytebox.co.za/'"><i class="material-icons right">home</i>Home</a>
     </div>
     </form>
 
@@ -28,7 +29,7 @@
     <div id="criteria-display">
         
         <div id="criteria-not-met">
-            <label for="criteria-not-met">Criteria:</label>  
+ 
         </div>
         
     </div>
@@ -37,7 +38,8 @@
         <div id="moderate"></div>
         <div id="strong"></div>
     </div>
-    
+    <script src="https://kit.fontawesome.com/script.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

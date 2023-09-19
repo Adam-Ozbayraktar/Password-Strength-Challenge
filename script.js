@@ -136,28 +136,42 @@ function criteriaMet () {
   
   if (criteria[0].isMet == true) {
   criteriaLength.style.color = "Green" 
-    } else {
-  criteriaLength.style.color = "Red"
-    }
+    } 
+   
   if (criteria[1].isMet == true) {
     criteriaUpp.style.color = "Green" 
-    } else {
-    criteriaUpp.style.color = "Red"
     }
+ 
   if (criteria[2].isMet == true) {
     criteriaLow.style.color = "Green" 
-    } else {
-    criteriaLow.style.color = "Red"
-    }
+    } 
+  
   if (criteria[3].isMet == true) {
     criteriaDigit.style.color = "Green" 
-    } else {
-    criteriaDigit.style.color = "Red"  
-    }
+    } 
+  
   if (criteria[4].isMet == true) {
     criteriaSpec.style.color = "Green" 
-    } else {
-    criteriaSpec.style.color = "Red"  
+    } 
+ 
+
+}
+
+function onRemoval () {
+  if (!criteria[0].isMet) {
+    criteriaLength.style.color = "Red"
+  }
+  if(!criteria[1].isMet) {
+    criteriaUpp.style.color = "Red"
     }
+  if  (!criteria[2].isMet) {
+     criteriaLow.style.color = "Red"
+    }
+  if (!criteria[3].isMet) {
+     criteriaDigit.style.color = "Red"  
+     }
+  if (!criteria[4].isMet){
+     criteriaSpec.style.color = "Red"  
+     }
 
 }

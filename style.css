@@ -3,30 +3,35 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+
 }
 #criteria-not-met {
  color: red;
  flex-direction: column;
 
 }
-
+#passwordInput {
+    width: 250px;
+}
 #password-strength {
 display:  flex;
-flex-direction: row;
 color: grey;
 justify-content: space-evenly;
-justify-content: center;
+gap: 15px;
 align-items: center;
-
+width: 250px;
+padding-left: 720px;
 padding-top: 5px;
 }
 
 #header {
 display: flex;
 justify-content: center;
+padding-top: 200px;
 }
 #form {
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
